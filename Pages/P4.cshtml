@@ -1,0 +1,53 @@
+﻿@page
+@model Practica1.Pages.P4Model
+@{
+}
+
+<div class="container mt-5">
+    <kbd class="text-center h1">PRACTICA 4</kbd>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Arreglo Aleatorio</h5>
+            <p class="card-text">
+                @foreach (var number in Model.NumerosAleatorios)
+                {
+                    <span class="badge badge-secondary text-black">@number</span>
+                }
+            </p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Resultados</h5>
+            <p class="card-text">
+                <strong>Suma:</strong> @Model.Sum <br />
+                <strong>Promedio:</strong> @Model.Promedio <br />
+                <strong>Moda:</strong>
+                @foreach (var mode in Model.Moda)
+                {
+                    <span class="badge badge-info text-black">@mode</span>
+                }
+                <br />
+                <strong>Mediana:</strong> @Model.Mediana
+            </p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Arreglo Ordenado</h5>
+            <p class="card-text">
+                @foreach (var number in Model.NumerosAleatorios.OrderBy(n => n))
+                {
+                    <span class="badge badge-secondary text-black">@number</span>
+                }
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/P4" class="btn btn-primary">Generar Nuevo Arreglo</a>
+    </div>
+</div>

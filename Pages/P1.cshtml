@@ -1,0 +1,60 @@
+﻿@page
+@model Practica1.Pages.P1Model
+@{
+}
+
+<kbd class="h1">PRACTICA 1</kbd>
+<h1>INDICE DE MASA CORPORAL</h1>
+
+<form method="post">
+    <div class="form-floating my-2">
+        <input class="form-control" type="text" id="Peso" name="Peso" asp-for="Peso" />
+        <label for="Peso">Peso (Kg):</label>
+    </div>
+    <div class="form-floating my-2">
+        <input class="form-control" type="text" id="Altura" name="Altura" asp-for="Altura" />
+        <label for="Altura">Altura (m):</label>
+    </div>
+    <div>
+        <button class="btn btn-primary" type="submit">Calcular</button>
+    </div>
+        
+    
+</form>
+
+@if (Model.resultado != 0)
+{
+    <div>
+        <h2>Resultado:</h2>
+        <p>IMC: @Model.resultado</p>
+        <p>Clasificación: @Model.clasificacion</p>
+
+        @switch (Model.clasificacion)
+        {
+            case "Bajo peso":
+                <img src="ruta/a/imagen/bajo_peso.jpg" alt="Bajo Peso" />
+                break;
+            case "Normal":
+                <img src="ruta/a/imagen/normal.jpg" alt="Normal" />
+                break;
+            case "Sobrepeso":
+                <img src="ruta/a/imagen/sobrepeso.jpg" alt="Sobrepeso" />
+                break;
+            case "Obesidad I":
+                <img src="ruta/a/imagen/obesidad_i.jpg" alt="Obesidad I" />
+                break;
+            case "Obesidad II":
+                <img src="ruta/a/imagen/obesidad_ii.jpg" alt="Obesidad II" />
+                break;
+            case "Obesidad III":
+                <img src="ruta/a/imagen/obesidad_iii.jpg" alt="Obesidad III" />
+                break;
+            default:
+                <img src="ruta/a/imagen/default.jpg" alt="Default" />
+                // Imagen por defecto si no coincide ninguna clasificación
+                break;
+        }
+    </div>
+
+
+}

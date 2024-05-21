@@ -1,0 +1,50 @@
+﻿@page
+@model Practica1.Pages.P2Model
+@{
+    ViewData["Title"] = "Caesar Cipher";
+}
+
+<kbd class="h1">PRACTICA 2</kbd>
+<h2>Codificar Mensaje</h2>
+<form method="post" asp-page-handler="Encode">
+    <div class="form-group col-md-2">
+        <label for="MensajeCodificado">MENSAJE:</label>
+        <input class="form-control" type="text" id="MensajeCodificado" name="mensaje" value="@Model.MensajeOriginal" />
+    </div>
+    <div class="form-group col-md-2">
+        <label for="shift">POSICIONES:</label>
+        <input class="form-control" type="number" id="N" name="n" value="@Model.N" />
+    </div>
+    <div class="my-3">
+        <button class="btn btn-outline-success" type="submit">CODIFICAR</button>
+    </div>
+    
+</form>
+
+@if (Model.MensajeCodificado != null)
+{
+    <h2>Encoded Message</h2>
+    <p>@Model.MensajeCodificado</p>
+}
+
+<h2>Decodificar Mensaje</h2>
+<form method="post" asp-page-handler="Decode">
+    <div class="form-group col-md-2">        
+        <label for="MensajeCodificado">MENSAJE CODIFICADO:</label>
+        <input class="form-control" type="text" id="MensajeCodificado" name="mensaje" value="@Model.MensajeCodificado" />
+    </div>
+    <div class="form-group col-md-2">
+        <label for="decodeShift">POSICIONES:</label>
+        <input class="form-control" type="number" id="decodeShift" name="n" value="@Model.N" />
+    </div>
+    <div class="my-3">
+        <button class="btn btn-outline-success" type="submit">DECODIFICAR</button>
+    </div>
+    
+</form>
+
+@if (Model.MensajeDecodificado != null)
+{
+    <h3>Mensaje Decodificado</h3>
+    <p>@Model.MensajeDecodificado</p>
+}

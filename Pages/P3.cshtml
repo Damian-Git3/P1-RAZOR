@@ -1,0 +1,45 @@
+﻿@page
+@model Practica1.Pages.P3Model
+@{
+    ViewData["Title"] = "P3";
+}
+
+<div class="container mt-5">
+    <kbd class="text-center h1">PRACTICA 3</kbd>
+    <form method="post" class="mt-4">
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="a">a:</label>
+                <input type="number" step="any" class="form-control" id="a" name="a" value="@Model.A" required />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="b">b:</label>
+                <input type="number" step="any" class="form-control" id="b" name="b" value="@Model.B" required />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="x">x:</label>
+                <input type="number" step="any" class="form-control" id="x" name="x" value="@Model.X" required />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="y">y:</label>
+                <input type="number" step="any" class="form-control" id="y" name="y" value="@Model.Y" required />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="n">n:</label>
+                <input type="number" class="form-control" id="n" name="n" value="@Model.N" required />
+            </div>
+            <div class="form-group col-md-2 align-self-end my-3">
+                <button type="submit" class="btn btn-primary">CALCULAR</button>
+            </div>
+        </div>
+    </form>
+
+    @if (Model.ResultMethod1 != 0 || Model.ResultMethod2 != 0)
+    {
+        <div class="mt-4">
+            <h3>RESULTADOS</h3>
+            <p><strong>Metodo 1:</strong> @Model.ResultMethod1</p>
+            <p><strong>Metodo 2:</strong> @Model.ResultMethod2</p>
+        </div>
+    }
+</div>
